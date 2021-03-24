@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -17,21 +18,24 @@ const useStyles = makeStyles({
     justifyContent: 'center',
   },
   login: {
-    fontSize: '2rem',
-    color: '#383D3D',
+    fontSize: '2.5rem',
+    color: 'white', //383D3D
     marginBottom: '1rem'
   },
   formdiv: {
     background: 'white',
     borderRadius: 10,
-    width: '40%',
+    width: '60%',
+    maxWidth: '700px',
     height: '30%',
+    minHeight: '290px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
   },
   form: {
-    width: "90%"
+    width: "90%",
+    minWidth: '250px'
   },
   textfield: {
    paddingLeft: '3rem',
@@ -40,8 +44,11 @@ const useStyles = makeStyles({
   },
   button: {
     margin: '1.5rem'
+  },
+  link: {
+    float: "right",
+    color: "grey",
   }
-
 });
 
 function LoginPage() {
@@ -57,15 +64,15 @@ function LoginPage() {
         <div className={classes.form}>
           <form> 
               <Grid item xs={12} className={classes.textfield}>
-                <TextField id="u_id" label="아이디" color="black" fullWidth="true"/>
+                <TextField id="u_id" label="아이디"fullWidth="true"/>
               </Grid>
               <Grid item xs={12} className={classes.textfield}>
                 <TextField id="u_pw" label="비밀번호" type="password" fullWidth="true"/>
               </Grid>
 
             <Button variant="contained" disableElevation className={classes.button}>로그인</Button>
-            <Button variant="contained" disableElevation className={classes.button}>회원가입</Button>
           </form>
+          <Link to="/signup" className={classes.link}>회원가입</Link>
         </div>
       </div>
     </div>
